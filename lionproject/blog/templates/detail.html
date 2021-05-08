@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+
+{% block containt %}
+<h1>{{blog.blog_title}}</h1>
+<div class = "d1">
+{{blog.blog_writer}}
+<br>
+{{blog.blog_date}}
+</div>
+<hr>
+{% if blog.blog_img %}
+<p><img src="{{blog.blog_img.url}}" alt=""></p>
+    #원본이 아닌 url 삽입
+{% endif %}
+<h6>{{blog.blog_body}}</h6>
+<a href ="{% url 'edit' blog.id %}">수정하기</a>
+<a href ="{% url 'delete' blog.id %}">삭제하기</a>
+{% endblock %}
